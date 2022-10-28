@@ -12,21 +12,21 @@ html{
 }
 
 .max-width{
-    max-width: 1300px;
+    max-width: 100%;
     padding: 0 80px;
     margin: auto;
 }
-section{
+.section{
     padding: 20px 0;
 }
 
 /* navbar styling */
 .navbar{
-    position: fixed;
+    /* position: relative; */
     width: 100%;
     z-index: 999;
     padding: 15px 0;
-    background-color: rgb(48, 42, 43);
+    background-color: rgb(39, 39, 39);
     font-family: 'Ubuntu', sans-serif;
 }
 .navbar .max-width{
@@ -62,7 +62,9 @@ section{
     font-weight: bold;
 }
 
+
 /* Image - Section */
+
 .Image{
     display: flex;
     width: 100%;
@@ -136,9 +138,12 @@ input[type="submit"]:hover{
 
 /* footer */
 .footer{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     text-align: center;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
+    color: black;
+    padding: 20px;
+    font-size: 1.2em;
 }
 .footer spam{
     color: crimson;
