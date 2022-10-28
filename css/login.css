@@ -1,4 +1,3 @@
-
 /*  import google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
@@ -12,22 +11,24 @@ html{
     scroll-behavior: smooth;
 }
 
+
+
 .max-width{
-    max-width: 1300px;
+    max-width: 100%;
     padding: 0 80px;
     margin: auto;
 }
-section{
+.section{
     padding: 20px 0;
 }
 
 /* navbar styling */
 .navbar{
-    position: fixed;
+    /* position: relative; */
     width: 100%;
     z-index: 999;
     padding: 15px 0;
-    background-color: rgb(48, 42, 43);
+    background-color: rgb(39, 39, 39);
     font-family: 'Ubuntu', sans-serif;
 }
 .navbar .max-width{
@@ -63,6 +64,7 @@ section{
     font-weight: bold;
 }
 
+
 /* Image -Section */
 .image-section{
     /* border: 2px solid red; */
@@ -71,6 +73,7 @@ section{
 }
 
 /* Main - Section */
+
 .main-section{
     /* border: 2px solid black; */
     display: flex;
@@ -143,9 +146,12 @@ input[type="submit"]:hover{
 
 /* footer */
 .footer{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     text-align: center;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
+    color: black;
+    padding: 20px;
+    font-size: 1.2em;
 }
 .footer spam{
     color: crimson;
