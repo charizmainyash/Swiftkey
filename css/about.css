@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*  import google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
@@ -61,68 +60,4 @@ html{
 .navbar spam{
     color: crimson;
     font-weight: bold;
-=======
-/*  import google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-html{
-    scroll-behavior: smooth;
-}
-
-.max-width{
-    max-width: 1300px;
-    padding: 0 80px;
-    margin: auto;
-}
-.section{
-    padding: 20px 0;
-}
-
-/* navbar styling */
-.navbar{
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-    padding: 15px 0;
-    background-color: rgb(48, 42, 43);
-    font-family: 'Ubuntu', sans-serif;
-}
-.navbar .max-width{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.navbar .logo a{
-    color: #fff;
-    font-size: 35px;
-    font-weight: 600;
-}
-.navbar .logo a span{
-    color: crimson;
-}
-.navbar .menu li{
-    list-style: none;
-    display: inline-block;
-}
-.navbar .menu li a{
-    display: block;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 25px;
-}
-.navbar .menu li a:hover{
-    color: crimson;
-}
-
-.navbar spam{
-    color: crimson;
-    font-weight: bold;
->>>>>>> db966906746f3ae80b1b4388d7cc93c456a90c85
 }
