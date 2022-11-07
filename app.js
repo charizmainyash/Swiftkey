@@ -17,6 +17,8 @@ app.get("/sign", (req, res) => {
 });
 
 app.get("/log", (req, res) => {
+    //res.send({redirect: '/blog'});
+
     res.sendFile(__dirname+"/Login.html");
 });
 
@@ -24,17 +26,51 @@ app.post("/logg", (req, res) => {
      var email=req.body.email;
      var pass=req.body.pass;
       function connection1(){
+        var login="";
+        let l;
         const client = new MongoClient(uri, { useNewUrlParser: true });
         client.connect(async(err) => {
           const collection = client.db('Hanna').collection('login');
-          await collection.find({"email":req.body.email}).toArray().then((ans) => {
-           if(ans){
-            console.log("No");}
-           else{
-            console.log("Yes");
-           } 
+          await collection.findOne({"email":req.body.email}, function (err, result) {
+            if (err) {
+                console.log("Error");
+            }
+            if (result !== null) {
+                
+                console.log("Email Sahi he");
+                 login="yes";
+                 let l=1;
+            } else {
+              
+                console.log("Email Wrong he");           
+                login="no" 
+                let l=0;              
+            }
         });
-          client.close();
+
+
+        if(!l){
+            await collection.findOne({"pass":req.body.pass}, function (er,rs) {
+                if (er) {
+                    console.log("Error");
+                }
+                if (rs !== null) {
+                    client.close();
+                    console.log("Email And Pass Sahi he");
+                    return res.redirect('/');
+                } else {
+                    client.close();
+                    console.log("Email sahi he lekin Pass wrong he");
+                    res.json({msg:`no`});
+                }
+            });
+        }
+        if(l){
+            client.close();
+            return res.redirect('/sign');
+            //res.send({redirect: '/sign'});
+            //res.sendFile(__dirname+"/Signup.html");
+        }
         });
         }
     connection1();

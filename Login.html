@@ -58,7 +58,7 @@
     <footer class="footer">
         <br>
         <p class="text-center">© 2020-2021 <spam>Codezombers</spam>, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-        <p id="result" style="color: orange"></p>
+        <p id="result" style="color: red"></p>
     </footer>
 <script>
 	function sendData() {
@@ -76,7 +76,10 @@
 			return response.json();
 		})
 		.then(function (data) {
-			result.innerHTML = data.msg;
+            if(data.msg=="no"){
+                result.innerHTML ="Wrong Password"
+            }
+			//result.innerHTML = data.msg;
 		})
 		.catch(function (error) {
 			console.log(error);
