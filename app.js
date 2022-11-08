@@ -8,8 +8,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(body_parser.urlencoded({ extended: true }));
 app.use(express.static(__dirname+'/css/'));
 app.use(express.static(__dirname+'/image/'));
+app.use('/static', express.static("public"));
 app.get("/", (req, res) => {
-    res.sendFile(__dirname+"/Home.html");
+    res.sendFile(__dirname+"/index.html");
 });
 
 app.get("/sign", (req, res) => {
@@ -21,6 +22,10 @@ app.get("/log", (req, res) => {
 
     res.sendFile(__dirname+"/Login.html");
 });
+
+app.get('/contact',(req, res) => {
+    res.sendFile(__dirname+"/Contact.html");
+})
 
 app.post("/logg", (req, res) => {   
      var email=req.body.email;
