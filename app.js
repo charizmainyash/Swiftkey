@@ -18,8 +18,8 @@ const body_parser=require("body-parser");
 
 app.use(express.urlencoded({ extended: true })); 
 app.use(body_parser.urlencoded({ extended: true }));
-app.use(express.static(__dirname+'/css/'));
-app.use(express.static(__dirname+'/image/'));
+// app.use(express.static(__dirname+'/css/'));
+// app.use(express.static(__dirname+'/image/'));
 app.use('/static', express.static("public"));
 app.get("/", (req, res) => {
     res.sendFile(__dirname+"/index.html");
