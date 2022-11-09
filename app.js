@@ -2,8 +2,20 @@ const express = require("express");
 const app = express();
 app.use(express.json()); 
 const body_parser=require("body-parser");
-const MongoClient = require('mongodb').MongoClient;
-const uri ="mongodb+srv://Shivam:Hanna-123@cluster0.gqafmx3.mongodb.net/test";
+
+// const mongoose = require('mongoose');
+// 'mongodb://localhost:27017/swiftkey'
+// mongoose.connect("mongodb+srv://Shivam:Hanna-123@cluster0.gqafmx3.mongodb.net/test");
+// var db=mongoose.connection;
+// db.on('error', console.log.bind(console, "connection error"));
+// db.once('open', function(callback){
+// 	console.log("connection succeeded");
+// })
+
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri ="mongodb+srv://Shivam:Hanna-123@cluster0.gqafmx3.mongodb.net/test";
+
 app.use(express.urlencoded({ extended: true })); 
 app.use(body_parser.urlencoded({ extended: true }));
 app.use(express.static(__dirname+'/css/'));
@@ -89,15 +101,36 @@ app.post("/signup", (req, res) => {
     var clgname=req.body.clgname;
     var subname=req.body.subname;
     var phone=req.body.phone;
-     function connection1(){
-       const client = new MongoClient(uri, { useNewUrlParser: true });
-       client.connect(async(err) => {
-         const collection = client.db('Hanna').collection('signup');
-         await collection.insertOne({name:name,email:email,pass:pass,cpass:cpass,clgname:clgname,subname:subname,phone:phone});
-         client.close();
-       });
-       }
-   connection1();
+    console.log("Hello Pat");
+    // var data = {
+    //     "name": name,
+    //     "email":email,
+    //     "pass":pass,
+    //     "cpass":cpass,
+    //     "clgname":clgname,
+    //     "subname":subname,
+    //     "phone":phone
+    // }
+  // {name:name,email:email,pass:pass,cpass:cpass,clgname:clgname,subname:subname,phone:phone}
+      
+
+
+   async function main() {
+    const MongoClient = require('mongodb').MongoClient;
+    const uri ="mongodb+srv://Shivam:Hanna-123@cluster0.gqafmx3.mongodb.net/?retryWrites=true&w=majority";
+    //const client = new MongoClient(uri, { useUnifiedTopology: true}, { useNewUrlParser: true }, { connectTimeoutMS: 30000 }, { keepAlive: 1});
+    const client = new MongoClient(uri, { useNewUrlParser: true });
+    await client.connect((err) => {
+      const collection = client.db('Hanna').collection('signup');
+      collection.insertOne({name:name,email:email,pass:pass,cpass:cpass,clgname:clgname,subname:subname,phone:phone});
+      console.log("Saved Data");
+       client.close();
+    });
+  }
+  main().catch(console.error);
 });
-const PORT = process.env.PORT || 8000; 
+
+
+
+const PORT = process.env.PORT || 3000; 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
