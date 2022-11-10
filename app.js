@@ -22,7 +22,7 @@ app.use(body_parser.urlencoded({ extended: true }));
 // app.use(express.static(__dirname+'/image/'));
 app.use('/static', express.static("public"));
 app.get("/", (req, res) => {
-    res.sendFile("/index.html");
+    res.sendFile(__dirname+"/index.html");
 });
 
 app.get("/sign", (req, res) => {
